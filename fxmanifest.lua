@@ -4,7 +4,7 @@ game 'gta5'
 author 'ShoeShuffler'
 name 'Shuffle-Shop Delivery'
 description 'A simple delivery system for qbx_core'
-version '1.0.0'
+version '1.0.1'
 
 shared_scripts {
     '@ox_lib/init.lua',
@@ -14,18 +14,12 @@ shared_scripts {
 }
 
 client_scripts{
-    '@PolyZone/client.lua',
-    '@PolyZone/EntityZone.lua',
-    '@PolyZone/BoxZone.lua',
-    '@PolyZone/CircleZone.lua',
-    '@PolyZone/RemoveZone',
     '@qbx_core/modules/playerdata.lua',
     'client/*.lua',
 }
 
 server_scripts{
     'server/*.lua',
-    '@oxmysql/lib/MySQL.lua',
 }
 
 lua54 'yes'
