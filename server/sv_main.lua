@@ -1,4 +1,4 @@
-lib.callback.register('ph_delivery:server:spawnVehicle', function(source)
+lib.callback.register('ss_delivery:server:spawnVehicle', function(source)
     local function isLocationClear(location)
         local closestVehicle, vehicleCoords = lib.getClosestVehicle(vector3(location.x, location.y, location.z), 2.0,
             false)
@@ -28,13 +28,13 @@ lib.callback.register('ph_delivery:server:spawnVehicle', function(source)
     return veh
 end)
 
-lib.callback.register('ph_delivery:server:getPlayerCoords', function(source)
+lib.callback.register('ss_delivery:server:getPlayerCoords', function(source)
     local playerPed = GetPlayerPed(source)
     local coords = GetEntityCoords(playerPed)
     return coords
 end)
 
-RegisterNetEvent('ph_delivery:server:collectPaycheck',
+RegisterNetEvent('ss_delivery:server:collectPaycheck',
     function(source, vehNetId, numberOfStopsDone, vehicleReturned, getsLootCrate, distanceCalculated)
         local player = exports.qbx_core:GetPlayer(source)
         local veh = NetworkGetEntityFromNetworkId(vehNetId)
@@ -58,7 +58,7 @@ RegisterNetEvent('ph_delivery:server:collectPaycheck',
             payout = payout - Config.leftVehiclePenalty * numberOfStopsDone
         end
         if not vehicleReturned then
-            TriggerClientEvent('ph_delivery:client:handleVehicle', source, distance)
+            TriggerClientEvent('ss_delivery:client:handleVehicle', source, distance)
         end
 
 

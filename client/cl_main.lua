@@ -73,7 +73,7 @@ local function setDeliveryRoute(coords)
     AddTextComponentString('Delivery Location')
     EndTextCommandSetBlipName(blip)
 
-    local playerCoords = lib.callback.await('ph_delivery:server:getPlayerCoords', cache.serverId)
+    local playerCoords = lib.callback.await('ss_delivery:server:getPlayerCoords', cache.serverId)
 
     if not playerCoords then
         return
@@ -177,7 +177,7 @@ local function organizeRoutes(routes)
 end
 
 -- Go to the guy, Start the job
-RegisterNetEvent('ph_delivery:client:StartJob', function()
+RegisterNetEvent('ss_delivery:client:StartJob', function()
     if onJob then
         return
     end
@@ -187,7 +187,7 @@ RegisterNetEvent('ph_delivery:client:StartJob', function()
     end
 
     onJob = true
-    local veh = lib.callback.await('ph_delivery:server:spawnVehicle', cache.serverId)
+    local veh = lib.callback.await('ss_delivery:server:spawnVehicle', cache.serverId)
     jobVehicle = NetworkGetEntityFromNetworkId(veh)
     local plate = GetVehicleNumberPlateText(jobVehicle)
 
@@ -312,7 +312,7 @@ end)
 
 
 -- Collect paycheck
-RegisterNetEvent('ph_delivery:client:collectPaycheck', function()
+RegisterNetEvent('ss_delivery:client:collectPaycheck', function()
 
     local rewardEarned
 
@@ -330,7 +330,7 @@ RegisterNetEvent('ph_delivery:client:collectPaycheck', function()
     end
 
 
-    TriggerServerEvent('ph_delivery:server:collectPaycheck', cache.serverId, NetworkGetNetworkIdFromEntity(jobVehicle),
+    TriggerServerEvent('ss_delivery:server:collectPaycheck', cache.serverId, NetworkGetNetworkIdFromEntity(jobVehicle),
     rewardEarned, vehicleReturned, getsRandomLoot, distanceCovered)
 
     jobComplete = false
@@ -365,7 +365,7 @@ local function postalMenu()
             title = 'Start Job',
             icon = 'fa-solid fa-id-card',
             onSelect = function()
-                TriggerEvent('ph_delivery:client:StartJob')
+                TriggerEvent('ss_delivery:client:StartJob')
             end
         })
     end
@@ -375,7 +375,7 @@ local function postalMenu()
             title = 'Collect Paycheck',
             icon = 'fa-solid fa-money-bill',
             onSelect = function()
-                TriggerEvent('ph_delivery:client:collectPaycheck')
+                TriggerEvent('ss_delivery:client:collectPaycheck')
             end
         })
     end
@@ -525,7 +525,7 @@ exports.ox_target:addSphereZone({
     }
 })
 
-RegisterNetEvent('ph_delivery:client:handleVehicle', function(distance)
+RegisterNetEvent('ss_delivery:client:handleVehicle', function(distance)
 
     local timeout = 0
 
