@@ -4,13 +4,12 @@ game 'gta5'
 author 'ShoeShuffler'
 name 'Shuffle-Shop Delivery'
 description 'A simple delivery system for qbx_core'
-version '1.0.1'
+version '1.0.2'
 
 shared_scripts {
     '@ox_lib/init.lua',
     'config.lua',
     '@qbx_core/modules/lib.lua',
-    '@qbx_core/shared/locale.lua',
 }
 
 client_scripts{
