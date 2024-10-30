@@ -433,9 +433,9 @@ end)
 
 
 exports.ox_target:addBoxZone({
-    coords = vector3(-313.33480834961, -1282.0482177734, 31.097756576538),
-    size = vector3(8, 1.5, 2),
-    rotation = 0,
+    coords = Config.pickUpBoxLocation.location,
+    size = Config.pickUpBoxLocation.size,
+    rotation = Config.pickUpBoxLocation.rotation,
     debug = Config.Debug,
     options = {
         label = 'Pick Up Box',

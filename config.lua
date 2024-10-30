@@ -18,6 +18,12 @@ Config.VehicleSpawnLocation = {                                  -- Vehicle Spaw
     vector4(-464.01, -2808.27, 6.0, 47.49)
 }
 
+Config.pickUpBoxLocation = {
+    location = vector3(-447.85018920898, -2806.1442871094, 7.5284068107605),
+    size = vector3(8, 1.5, 2),
+    rotation = 0
+}
+
 Config.Cooldown = 10 -- Cooldown between getting new missions (Only activated upon someone cancelling their route to get a new route)
 
 
