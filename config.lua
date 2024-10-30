@@ -2,7 +2,7 @@ Config = {}
 
 Config.PedLocation = vector4(-424.27, -2789.87, 6.53, 319.02)    -- Change this to your needs
 
-Config.Debug = false                                             -- Debug messages and Polyzones
+Config.Debug = true                                             -- Debug messages and Polyzones
 
 Config.UsingOXFuel = false                                       -- If you are using ox_Fuel then set this to true
 
